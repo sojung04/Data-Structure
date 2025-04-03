@@ -12,5 +12,58 @@
 
 ## 3. Chapter 7 연습문제 풀이
 
-```text
-# 교재 연습문제 풀이 내용
+###  3.1
+
+```python
+class ListQueue:
+	def __init__(self):
+		self.__queue = []
+
+	def enqueue(self, x):
+		self.__queue.append(x)
+
+	def dequeue(self):
+		return self.__queue.pop(-1)
+
+	def front(self):
+		if self.isEmpty():
+			return None
+		else:
+			return self.__queue[-1]
+
+	def isEmpty(self) -> bool:
+		return (len(self.__queue) == 0)
+ 
+	def dequeueAll(self):
+		self.__queue.clear()
+
+	def printQueue(self):
+		print("Queue from front:", end = ' ')
+		for i in range(len(self.__queue) - 1, -1, -1): 
+			print(self.__queue[i], end = ' ')
+		print()
+```
+
+### 3.2
+
+```python
+# 코드 내용
+```
+
+### 3.3
+
+```python
+def copy(queue1, queue2):
+
+	queue2.dequeueAll()
+
+	curr = queue1.front()
+
+	while curr != None:
+		queue2.enqueue(curr)
+		queue1.dequeue()
+		curr = queue1.front()
+
+	print("[복사 결과] ", end = '')
+	queue2.printQueue()
+```
